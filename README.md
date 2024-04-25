@@ -1,3 +1,3 @@
 # docker-pretix
 
-Builds a custom Pretix Docker image via GitHub Actions.
+A custom Pretix Docker image with the `pretix-ldap` and `pretix-sepadebit` plugins.
