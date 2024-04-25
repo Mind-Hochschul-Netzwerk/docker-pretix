@@ -14,7 +14,7 @@ RUN PYTHONPATH=$PYTHONPATH:/pretix/src \
     pretix-ldap \
     pretix-pages \
     pretix-passbook \
-    # pretix-roomsharing \
+    pretix-roomsharing \
     pretix-sepadebit \
     pretix-zugferd
 
