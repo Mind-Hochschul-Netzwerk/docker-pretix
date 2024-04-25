@@ -5,10 +5,16 @@ on:
     branches:
       - main
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Trivy
+    types:
+      - completed
 
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'failure'
 
     permissions:
       contents: read
