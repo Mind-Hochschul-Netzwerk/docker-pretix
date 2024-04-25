@@ -4,14 +4,23 @@ on:
   schedule:
     - cron: '0 1 * * *'
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: mind-hochschul-netzwerk/pretix
-
 jobs:
   trivy:
     runs-on: ubuntu-latest
     steps:
+      - name: Load environment variables
+        run: |
+          set -o allexport
+          source .env
+          set +o allexport
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
