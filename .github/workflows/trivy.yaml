@@ -8,10 +8,13 @@ jobs:
   trivy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Load environment variables
         run: |
           set -o allexport
-          source .env
+          source .github/workflows/.env
           set +o allexport
 
       - name: Log in to the Container registry
