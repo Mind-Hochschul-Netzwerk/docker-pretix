@@ -1,3 +1,3 @@
 # docker-pretix
 
-A custom Pretix Docker image with the `pretix-ldap` and `pretix-sepadebit` plugins.
+A custom Pretix Docker image with various useful plugins.

@@ -10,8 +10,13 @@ RUN set -x \
 
 RUN PYTHONPATH=$PYTHONPATH:/pretix/src \
     pip3 install \
-        pretix-ldap \
-        pretix-sepadebit
+    prtx-faq \
+    pretix-ldap \
+    pretix-pages \
+    pretix-passbook \
+    # pretix-roomsharing \
+    pretix-sepadebit \
+    pretix-zugferd
 
 USER pretixuser
 
