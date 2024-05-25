@@ -4,16 +4,13 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '23 2 * * 1'
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - Trivy
-    types:
-      - completed
 
 jobs:
   build-and-push-image:
-    uses: Mind-Hochschul-Netzwerk/.github/.github/workflows/ci.yaml@feature/common-workflow
+    uses: Mind-Hochschul-Netzwerk/.github/.github/workflows/ci.yaml@main
     with:
       registry: ${{ vars.REGISTRY }}
       image_name: ${{ vars.IMAGE_NAME }}
