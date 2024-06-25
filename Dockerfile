@@ -1,4 +1,4 @@
-FROM pretix/standalone:2024.5
+FROM pretix/standalone:2024.6
 
 USER root
 
