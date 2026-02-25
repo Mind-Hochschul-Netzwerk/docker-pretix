@@ -1,4 +1,4 @@
-FROM pretix/standalone:2026.1.0
+FROM pretix/standalone:2026.2.0
 
 USER root
 
