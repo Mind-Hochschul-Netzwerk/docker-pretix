@@ -18,6 +18,8 @@ RUN PYTHONPATH=$PYTHONPATH:/pretix/src \
     pretix-sepadebit \
     pretix-zugferd
 
+RUN chmod 711 /pretix
+
 USER pretixuser
 
 RUN cd /pretix/src && make production
