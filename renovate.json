@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard"
+  ],
+  "timezone": "Europe/Berlin",
+  "packageRules": [
+    {
+      "description": "Keep the pretix base image in the Dockerfile up to date",
+      "matchManagers": [
+        "dockerfile"
+      ],
+      "matchDepNames": [
+        "pretix/standalone"
+      ],
+      "labels": [
+        "pretix-update"
+      ],
+      "commitMessageTopic": "pretix",
+      "commitMessageExtra": "to {{newVersion}}",
+      "minimumReleaseAge": "2 days",
+      "automerge": true
+    }
+  ]
+}
