@@ -7,7 +7,7 @@
   "timezone": "Europe/Berlin",
   "packageRules": [
     {
-      "description": "Keep the pretix base image in the Dockerfile up to date",
+      "description": "Keep the pretix base image in the Dockerfile up to date. The automerge below is gated on the PR Build check in .github/workflows/pr-build.yaml; without a status check on the pull request Renovate would never merge.",
       "matchManagers": [
         "dockerfile"
       ],

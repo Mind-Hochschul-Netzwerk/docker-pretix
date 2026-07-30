@@ -1,0 +1,32 @@
+name: PR Build
+
+# Gates Renovate's automerge: without at least one status check on the pull
+# request, Renovate treats the branch as perpetually pending and never merges.
+# This builds the image but deliberately does not push it — the push to the
+# registry stays the job of ci.yaml, which runs after the merge to main.
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build image (no push)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: docker/setup-buildx-action@v4
+
+      - name: Build image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: false
